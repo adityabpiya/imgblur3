@@ -1,4 +1,7 @@
 #Imageblur3.rb
+
+
+
 class Image
 
 	attr_accessor :blur
@@ -23,6 +26,8 @@ class Image
       end
     end
     #  puts ones.inspect
+
+    
   
   
     ones.each do |br|  
@@ -35,15 +40,34 @@ class Image
       @image[x - 1][y] = 1 if x - 1 >= 0 #up
     end
   end
+
+  
+
+  def blur3(distance=3)
+    distance.times do
+      find_1
+    end
+  end
+
+
 end
 
+
+
 image = Image.new([
-  [0, 0, 0, 0],
-  [0, 1, 0, 0],
-  [0, 0, 0, 1],
-  [0, 0, 0, 0]
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 
+  [0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0], 
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+
+
 ])
 
 
-image.find_1
+# image.find_1
+image.blur3
 image.output_image
