@@ -1,16 +1,23 @@
-#Imageblur3.rb
-
-
-
+#Imageblur2.rb
 class Image
 
-	attr_accessor :blur
+    attr_accessor :blur, :n
+    
+    def input
+        puts "Please enter manhattan distance"
+        @n = gets.chomp
+        @n.to_i
+    end
 
 	def initialize(blur)
-		@image = blur
-	end
+        @image = blur
+        @n = n
+    end
+  
+  
 
   def output_image
+    self.blur2 
 		@image.each do |call|
 			puts call.join
 		end
@@ -26,8 +33,6 @@ class Image
       end
     end
     #  puts ones.inspect
-
-    
   
   
     ones.each do |br|  
@@ -41,33 +46,25 @@ class Image
     end
   end
 
-  
-
-  def blur3(distance=2) # I wanted to make user enter how many pixels they want to blur but I couldnt make it work
-    distance.times do
-      find_1  #find_1 finds one and blurs them , repeating it will find ones at each loop and changes 0 around it to 1
+  def blur2(distance=n)
+    distance.to_i.times do
+      find_1
     end
   end
-
+  
 
 end
 
-
-
 image = Image.new([
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 
-  [0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0], 
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0],
+        [0, 0, 0, 0],
+        [0, 0, 0, 0],
+        [0, 1, 0, 0],
+        [0, 0, 0, 0],
+        [0, 0, 0, 0]
+      ])
 
 
-])
-
-
-# image.find_1
-image.blur3
+# image.blur2
+image.input
 image.output_image
